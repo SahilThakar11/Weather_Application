@@ -1,0 +1,238 @@
+.btnSearch {
+  width: 100px;
+  height: 50px;
+  margin: 20px;
+  border: 2px solid #3457f5;
+  color: white;
+  font-size: larger;
+}
+.btnGetLocation {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  display: flex;
+  padding: 9px;
+}
+.search-bar {
+  margin: 20px 20px 20px 50px;
+}
+#randome {
+  margin: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  padding: 9px;
+}
+nav {
+  background: transparent;
+}
+
+.cell {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: transparent; /* Transparent white background */
+  backdrop-filter: blur(10px); /* Apply a blur effect */
+  font-family: cursive; /* Choose a suitable font-family */
+  font-size: 16px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 10px; /* Rounded corners for a card-like appearance */
+}
+.uv-bar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 162, 255, 0.3);
+  border: 5px solid blanchedalmond;
+  display: flex;
+  float: right;
+}
+/* Media queries for responsiveness */
+@media (min-width: 1408px) {
+  .weather-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    font-family: cursive;
+    width: 95%;
+  }
+  body {
+    background-position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(../Media/bg-Img/r1.jpg);
+    background-repeat: repeat-x;
+    color: white;
+  }
+  .weather-today {
+    flex: 1;
+    overflow: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: transparent; /* Transparent white background */
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+    font-family: cursive; /* Choose a suitable font-family */
+    font-size: 16px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .dayDiv {
+    width: 600px;
+    height: 220px;
+  }
+  .cityTitle {
+    font-family: cursive;
+    font-size: 40px;
+    float: left;
+  }
+  .flag {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  .mainTemp {
+    float: left;
+    font-size: 20px;
+    clear: both;
+    margin: 10px auto;
+  }
+  .wIcon {
+    margin-top: -75px;
+    margin-left: 50px;
+    float: right;
+    position: fixed;
+    clear: right;
+    width: 200px;
+    height: 200px;
+  }
+  .mainStat {
+    float: left;
+    clear: left;
+    font-size: 20px;
+  }
+  .sunDiv {
+    float: right;
+    width: 500px;
+    position: fixed;
+    margin-top: -230px;
+    margin-left: 650px;
+    height: 220px;
+  }
+  .uv-info {
+    float: left;
+    margin-top: 20px;
+    margin-right: 70px;
+    margin-left: 20px;
+    font-size: 27px;
+  }
+  .uvDiv {
+    float: left;
+    width: 350px;
+    height: 180px;
+    clear: both;
+    margin-top: 30px;
+  }
+
+  .windDiv {
+    float: right;
+    margin-top: 20px;
+    margin-right: 400px;
+    height: 200px;
+    width: 300px;
+  }
+  .wind-data {
+    font-size: 24px;
+  }
+  .humidity {
+    float: right;
+    clear: both;
+    width: 300px;
+    height: 180px;
+    margin-top: -210px;
+    font-size: 30px;
+  }
+  .ImgSet,
+  .ImgRise {
+    margin-left: -110px;
+    margin-top: -10px;
+    width: 90px;
+    height: 90px;
+  }
+  .tmSet,
+  .tmRise {
+    font-size: larger;
+    padding-left: 20px;
+  }
+  .tmSet {
+    padding-top: 300px;
+  }
+  .visibility {
+    width: 300px;
+    height: 180px;
+    clear: both;
+    margin-top: 260px;
+    margin-left: 200px;
+    font-size: 20px;
+  }
+  .pressure {
+    width: 300px;
+    height: 180px;
+    margin-top: -190px;
+    margin-left: 600px;
+    font-size: 25px;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    background-image: url(../Media/bg-Img/r1.jpg);
+    font-size: larger;
+    color: white;
+  }
+  .weather-data {
+    width: 460px;
+    height: 250px;
+    margin-left: -20px;
+    float: left;
+  }
+  .wIcon {
+    float: right;
+  }
+  .sunset-sunrise {
+    width: 250px;
+    height: 250px;
+    margin-top: -40px;
+    margin-left: -10px;
+  }
+  .uvDiv {
+    width: 200px;
+    height: 250px;
+    margin-left: 230px;
+    margin-top: -250px;
+  }
+  .windDiv {
+    width: 200px;
+    margin-top: -40px;
+    margin-left: 2px;
+  }
+  .humidity {
+    width: 200px;
+    margin-left: 14px;
+  }
+  .visibility {
+    width: 200px;
+    margin-top: -350px;
+    margin-left: 230px;
+  }
+  .pressure {
+    width: 200px;
+    height: 150px;
+    margin-left: 230px;
+    margin-top: -3px;
+  }
+}

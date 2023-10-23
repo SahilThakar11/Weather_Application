@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/Index.css" />
+    <link rel="icon" ref="icon/x-icon" href="./Media/Weathericon.ico" />
+  </head>
+  <body class="container">
+    <header></header>
+    <nav class="nav nav-light">
+      <div class="container-fluid">
+        <form class="d-flex">
+          <input
+            type="search"
+            placeholder="Search for weather..."
+            class="form-control me-2 search-bar"
+            aria-label="Search"
+          />
+          <button class="btn btn-primary btnSearch">Search</button>
+          <button class="btn btn-success btnGetLocation">
+            <img src="./Media/Location.png" height="30px" width="30px" />
+          </button>
+          <button class="btn btn-warning" id="randome">
+            <img src="./Media/randome.png" alt="" width="30px" height="30px" />
+          </button>
+        </form>
+        <center>
+          <span
+            ><a class="btn text-primary" href="/Index.html"
+              >Current Weather Forecast</a
+            ></span
+          >
+          <span
+            ><a class="btn text-info" href="/NxtDayForecast.html"
+              >Next Days Weather Forecast</a
+            ></span
+          >
+          <span
+            ><a href="./WeatherCharts.html" class="btn text-info"
+              >Weather Charts</a
+            ></span
+          >
+        </center>
+      </div>
+    </nav>
+    <main>
+      <div class="weather-container container">
+        <div class="weather-today">
+          <div class="container weather-data"></div>
+          <div class="container sunset-sunrise"></div>
+          <div class="container Uv-index cell"></div>
+          <div class="container wind"></div>
+          <div class="conatiner humidity cell">
+            <h3>Humidity</h3>
+            <span class="wind-speed"
+              ><img
+                src="./Media/humidity.png"
+                alt="wind speed"
+                height="100px"
+                width="100px"
+            /></span>
+            <span class="percentage"></span>
+          </div>
+          <div class="container visibility cell">
+            <h3>Visibility</h3>
+            <span class="vis-Img">
+              <img
+                src="./Media/visibility.png"
+                alt="visibility-icon"
+                width="100px"
+                height="100px"
+              />
+            </span>
+            <span class="visibility-data"></span>
+          </div>
+          <div class="container pressure cell">
+            <h3>Pressure</h3>
+            <span class="vis-Img">
+              <img
+                src="./Media/pressure.png"
+                alt="visibility-icon"
+                width="100px"
+                height="100px"
+              />
+            </span>
+            <span class="pressure-data"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="./scripts/NextDayWeather.js"></script>
+    <script src="./scripts/RandomWeather.js"></script>
+    <script src="./scripts/Location.js"></script>
+    <script src="./scripts/WeatherChart.js"></script>
+    <script src="./scripts/searchbar.js"></script>
+    <script src="./scripts/WeatherData.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
