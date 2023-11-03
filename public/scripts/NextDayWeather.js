@@ -1,5 +1,5 @@
+const apiKey = "9b4bbf30228eb8528d36e79d05da1fac";
 async function getNextDaysWeather(cityName) {
-  // Replace with your OpenWeatherMap API key
   let url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
   try {
     const res = await fetch(url);
@@ -69,10 +69,27 @@ async function getNextDaysWeather(cityName) {
         <p>${temperature}°C / feels like ${feels_like}°C</p>
         <p>${weatherDescription}</p>
       `;
-
       weatherDetails.appendChild(weatherInfo);
+      getCountryName(cityName);
     });
   } catch (error) {
     console.log(error);
   }
 }
+async function getCountryName(cityName) {
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Network response was not ok: ${res.status}`);
+    }
+
+    const data = await res.json();
+    const sys = data.sys;
+    let weatherCountry = sys.country;
+    document.querySelector(
+      ".cityName"
+    ).innerHTML = `${cityName}, ${weatherCountry} <img class="flag" src="https://flagsapi.com/${weatherCountry}/flat/32.png">`;
+  } catch (error) {}
+}
+getNextDaysWeather("New York");

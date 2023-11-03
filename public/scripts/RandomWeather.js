@@ -19,4 +19,3 @@ async function getRandomeWeather(e) {
 
 const btnRandom = document.querySelector("#randome");
 btnRandom.addEventListener("click", getRandomeWeather);
-getRandomeWeather();

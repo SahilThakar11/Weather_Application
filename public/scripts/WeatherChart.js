@@ -19,12 +19,13 @@ function getWeeklyMaxTemperatures(cityName) {
       const maxTemperatures = dates.map((date) => dailyMaxTemperatures[date]);
 
       createWeeklyMaxTemperatureChart(dates, maxTemperatures);
+      getCName(cityName);
     })
     .catch((error) => {
       console.error(error);
     });
 }
-
+getWeeklyMaxTemperatures("New York");
 function createWeeklyMaxTemperatureChart(dates, maxTemperatures) {
   const ctx = document.getElementById("temperatureChart").getContext("2d");
 
@@ -75,4 +76,20 @@ function createWeeklyMaxTemperatureChart(dates, maxTemperatures) {
       },
     },
   });
+}
+async function getCName(cityName) {
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Network response was not ok: ${res.status}`);
+    }
+
+    const data = await res.json();
+    const sys = data.sys;
+    let weatherCountry = sys.country;
+    let cc = document.querySelector(".cName");
+    cc.innerHTML = "";
+    cc.innerHTML = `${cityName} ,${weatherCountry}<br><img class="flagChart" src="https://flagsapi.com/${weatherCountry}/flat/32.png">`;
+  } catch (error) {}
 }

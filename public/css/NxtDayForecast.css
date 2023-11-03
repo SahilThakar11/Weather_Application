@@ -80,3 +80,10 @@ body {
   margin: 5px;
   font-family: cursive;
 }
+.cityName {
+  color: white;
+  font-family: cursive;
+  font-size: x-large;
+  display: flex;
+  justify-content: center;
+}

@@ -23,12 +23,43 @@ async function getWeatherData(weatherCity) {
     });
     let mainData = data.main;
     let pressure = mainData.pressure;
-    let pressureContainer = document.querySelector(".pressure-data");
-    pressureContainer.innerHTML = pressure + " mb";
+    let pressureContainer = document.querySelector(".pressure");
+    pressureContainer.innerHTML = "";
+    let prDiv = document.createElement("div");
+    prDiv.className = "cell";
+    prDiv.innerHTML = "";
+    prDiv.innerHTML = `
+    <h3>Pressure</h3>
+            <span class="vis-Img">
+              <img
+                src="./Media/pressure.png"
+                alt="visibility-icon"
+                width="100px"
+                height="100px"
+              />
+            </span>
+            <span class="pressure-data">${pressure} mb</span>
+    `;
+    pressureContainer.appendChild(prDiv);
     let visibility = data.visibility / 1000;
     const visibilityCategory = getVisibilityCategory(visibility);
-    let visibilityContainer = document.querySelector(".visibility-data");
-    visibilityContainer.innerHTML = visibility + "km - " + visibilityCategory;
+    let visibilityContainer = document.querySelector(".visibility");
+    visibilityContainer.innerHTML = "";
+    let visDiv = document.createElement("div");
+    visDiv.className = "cell";
+    visDiv.innerHTML = `
+    <h3>Visibility</h3>
+    <span class="vis-Img">
+    <img
+    src="./Media/visibility.png"
+    alt="visibility-icon"
+    width="100px"
+    height="100px"
+    />
+    </span>
+    <span class="visibility-data">${visibility}km -${visibilityCategory}</span>
+    `;
+    visibilityContainer.appendChild(visDiv);
     let temperature = Math.round(mainData.temp - 273.15);
     let feelsLike = Math.round(mainData.feels_like - 273.15);
     let humidity = mainData.humidity;
@@ -56,7 +87,6 @@ async function getWeatherData(weatherCity) {
     const formattedSunrise = sunriseTime.toLocaleTimeString();
     const formattedSunset = sunsetTime.toLocaleTimeString();
     const flagURL = await getCountryFlag(weatherCountry);
-
     let weatherDataContainer = document.querySelector(".weather-data");
     weatherDataContainer.innerHTML = "";
     let dataDiv = document.createElement("div");
@@ -73,7 +103,6 @@ async function getWeatherData(weatherCity) {
         <span class="mainStat">${Main}: ${Desc}</span>
         `;
     weatherDataContainer.appendChild(dataDiv);
-
     let weatherWindContainer = document.querySelector(".wind");
     weatherWindContainer.innerHTML = "";
     let windDiv = document.createElement("div");
@@ -91,10 +120,23 @@ async function getWeatherData(weatherCity) {
         
 
         `;
-    weatherWindContainer.appendChild(windDiv); //
-    const humidityText = document.querySelector(".percentage");
-    humidityText.textContent = `${humidity}%`;
-
+    weatherWindContainer.appendChild(windDiv);
+    const humidityContainer = document.querySelector(".humidity");
+    humidityContainer.innerHTML = "";
+    let humDiv = document.createElement("div");
+    humDiv.className = "cell";
+    humDiv.innerHTML = `
+    <h3>Humidity</h3>
+            <span class="wind-speed"
+              ><img
+                src="./Media/humidity.png"
+                alt="wind speed"
+                height="100px"
+                width="100px"
+            /></span>
+            <span class="percentage">${humidity}%</span>
+    `;
+    humidityContainer.appendChild(humDiv);
     let weatherSunData = document.querySelector(".sunset-sunrise");
     weatherSunData.innerHTML = "";
     let sunDiv = document.createElement("div");
@@ -121,13 +163,18 @@ async function getWeatherData(weatherCity) {
 
     // Update the HTML to display the UV index bar with the color
     let uvIndexContainer = document.querySelector(".Uv-index");
-    uvIndexContainer.classList.add("uvDiv");
-    uvIndexContainer.innerHTML = `
+    uvIndexContainer.innerHTML = "";
+    let uvDiv = document.createElement("div");
+    uvDiv.innerHTML = "";
+    uvDiv.className = "uvDiv cell";
+
+    uvDiv.innerHTML = `
         <h3>UV Index</h3>
         <span class="uv-info"> ${uvIndex}<br> (${uvDescription})</span>
         <div class="uv-bar" style="background-color: ${uvColor};"></div>
-        <p></p>
+        
       `;
+    uvIndexContainer.appendChild(uvDiv);
   } catch (err) {
     console.error(err);
   }
@@ -140,7 +187,7 @@ function getColorBasedOnUV(uvIndex) {
     return "yellow"; // Moderate UV index
   } else if (uvIndex <= 7) {
     return "#FFA500"; // High UV index
-  } else if (uvIndex <= 10) {
+  } else if (uvIndex <= 11) {
     return "red"; // Very high UV index
   } else {
     return "purple"; // Extreme UV index
@@ -154,7 +201,7 @@ function getUVDescription(uvIndex) {
   } else if (uvIndex < 8) {
     return "High";
   } else if (uvIndex < 11) {
-    return "Very High";
+    return "Higher";
   } else {
     return "Extreme";
   }
@@ -191,3 +238,4 @@ function getVisibilityCategory(visibility) {
     return "Good";
   }
 }
+getWeatherData("New York");

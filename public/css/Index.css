@@ -29,16 +29,15 @@ nav {
 
 .cell {
   flex: 1;
-  overflow: auto;
   padding: 10px;
   border: 1px solid #ccc;
-  background: transparent; /* Transparent white background */
-  backdrop-filter: blur(10px); /* Apply a blur effect */
-  font-family: cursive; /* Choose a suitable font-family */
-  font-size: 16px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  font-family: cursive;
+  font-size: 20px;
   text-align: center;
   margin: 10px;
-  border-radius: 10px; /* Rounded corners for a card-like appearance */
+  border-radius: 10px;
 }
 .uv-bar {
   width: 100px;
@@ -49,8 +48,23 @@ nav {
   display: flex;
   float: right;
 }
-/* Media queries for responsiveness */
-@media (min-width: 1408px) {
+.cName {
+  display: flex;
+  justify-content: center;
+}
+body {
+  background-position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url(../Media/bg-Img/r1.jpg);
+  background-repeat: repeat-x;
+  color: white;
+}
+@media (min-width: 1401px) {
+  .flagChart {
+    width: 35px;
+    height: 35px;
+  }
   .weather-container {
     display: flex;
     justify-content: space-between;
@@ -72,9 +86,9 @@ nav {
     overflow: auto;
     padding: 10px;
     border: 1px solid #ccc;
-    background: transparent; /* Transparent white background */
-    backdrop-filter: blur(10px); /* Apply a blur effect */
-    font-family: cursive; /* Choose a suitable font-family */
+    background: transparent;
+    backdrop-filter: blur(10px);
+    font-family: cursive;
     font-size: 16px;
     text-align: center;
     margin: 10px;
@@ -103,13 +117,13 @@ nav {
     margin: 10px auto;
   }
   .wIcon {
-    margin-top: -75px;
+    margin-top: -70px;
     margin-left: 50px;
     float: right;
     position: fixed;
     clear: right;
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
   }
   .mainStat {
     float: left;
@@ -157,10 +171,7 @@ nav {
     margin-top: -210px;
     font-size: 30px;
   }
-  .ImgSet,
   .ImgRise {
-    margin-left: -110px;
-    margin-top: -10px;
     width: 90px;
     height: 90px;
   }
@@ -168,6 +179,11 @@ nav {
   .tmRise {
     font-size: larger;
     padding-left: 20px;
+  }
+  .ImgSet {
+    padding-bottom: 30px;
+    width: 90px;
+    height: 110px;
   }
   .tmSet {
     padding-top: 300px;
@@ -187,6 +203,8 @@ nav {
     margin-left: 600px;
     font-size: 25px;
   }
+}
+@media (max-width: 1401px) {
 }
 @media (max-width: 480px) {
   body {
